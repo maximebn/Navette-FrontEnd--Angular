@@ -1,0 +1,82 @@
+<mat-progress-spinner *ngIf="progress"></mat-progress-spinner>
+<!-- Container principal -->
+
+<div class="container-fluid">
+  <main>
+
+
+
+    <mat-list>
+      <mat-list-item>
+          <h1 class="mx-auto">
+              Réservez vite votre billet de <strong>bus</strong>
+            </h1>
+      </mat-list-item>
+
+      <mat-list-item class="col-lg-4 col-md-6 col-sm-8 col-10 mx-auto">
+            <button class = "d-flex etiquetteTournee mx-auto" [disabled]="isMinDate" (click)="previousDay()">
+                Jour précédent
+            </button>
+            <button class = "d-flex etiquetteTournee mx-auto" [disabled]="isMaxDate" (click)="nextDay()">
+                Jour suivant
+            </button>
+      </mat-list-item>
+    </mat-list>
+
+
+    <!-- Corps principal de la page -->
+
+    <div class="col-lg-8 col-sm-8 mx-auto">
+
+      <!-- Définition du groupe d'onglets -->
+        <mat-tab-group >
+          <mat-tab label="Recherche pour le : {{ tourDate | momentPipe: 'DD-MM-YYYY'}}">
+
+            <!-- Etiquette -->
+              <div class = "d-flex etiquette">
+                  <mat-icon>airport_shuttle</mat-icon>
+                  Les bus du jour
+              </div>
+
+
+              <!-- Expansion panels pour les départs du matin et de l'après-midi -->
+              <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Départs de la matinée
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+
+                    <!-- Boucle sur les tournées du tableau tournees, condition if sur départ du matin -->
+                    <ul *ngFor="let tour of tournees">
+                      <li *ngIf="tour.am">
+                    <!-- Composant d'affichage des tournées + bouton réserver -->
+                  <app-my-component class="mx-auto" [tour]="tour" (places)="receivePlaces($event)"></app-my-component>
+                  <button mat-raised-button (click)="apiCallChoose(tour)" [disabled]="isDisabled(tour)" color="primary">Réserver</button>
+                        </li>
+                    </ul>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Départs de l'après-midi
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <ul *ngFor="let tour of tournees">
+                      <li *ngIf="!tour.am">
+                    <!-- Composant de sélection du nombre de places -->
+                  <app-my-component class="mx-auto" [tour]="tour" (places)="receivePlaces($event)"></app-my-component>
+                  <button mat-raised-button (click)="openPaymentDialog(tour)" [disabled]="isDisabled(tour)" color="primary">Réserver</button>
+                        </li>
+                    </ul>
+
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-tab>
+
+

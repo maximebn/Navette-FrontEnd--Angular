@@ -1,0 +1,20 @@
+<mat-toolbar class="mx-auto">
+      <span>{{tour.hour | momentPipe:'HH:mm'}}</span>
+      <span class="example-spacer"></span>
+      <span class="mx-auto">Places disponibles : {{ tour.dispo }}</span>
+
+<div class = "d-flex flex-row resa mx-auto">
+    <button type="button" class="btn btn-outline-info" [ngClass]="{'p-2':true, 'card':true, 'bouton':true}" (click)="decrement()" [disabled]="isMini">
+        <mat-icon>person_outline</mat-icon>
+    </button>
+    <button type="button" class="btn btn-light" [ngClass]="{'p-2':true, 'card':true, 'bouton-central':true}">
+        {{ nbPlaces }}
+    </button>
+    <button type="button" class="btn btn-outline-info" [ngClass]="{'p-2':true, 'card':true, 'bouton':true}" (click)="increment()" [disabled]="isMaxi">
+        <mat-icon>person_add</mat-icon>
+    </button>
+    <div class="ml-auto p-2">
+        {{ nbPlaces }} place(s)
+    </div>
+  </div>
+</mat-toolbar>

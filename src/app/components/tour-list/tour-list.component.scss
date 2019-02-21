@@ -1,0 +1,116 @@
+li {
+  cursor : pointer;
+}
+
+ul {
+  list-style-type:none;
+  padding:0;
+}
+
+button {
+  cursor : pointer;
+  outline: 0;
+}
+
+.d-flex {
+    border-radius : 5px;
+    margin-bottom : 15px;
+}
+
+.disabled {
+  cursor : not-allowed;
+  &.clicked {
+    color :black;
+}
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  margin-right: 13px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  margin-top: -80px;
+}
+
+.etiquette {
+  color: white;
+  background-color: rgb(230, 124, 38);
+  width : 185px;
+  border-radius: 50px;
+  text-align: center;
+  float: rigth;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 30px;
+  padding-left: 10px;
+
+  &.resa {
+    width : 205px;
+  }
+}
+
+
+.etiquetteTournee {
+  color: white;
+  background-color: rgba(85, 13, 37, 0.76);
+  width : 150px;
+  border-radius: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 12px;
+}
+
+ .mat-expansion-panel {
+   margin-bottom: 20px;
+   font-size: 18px;
+ }
+
+ .headermaticon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: rgb(230, 124, 38);
+}
+
+.mat-toolbar-row {
+  font-size: 30px;
+}
+
+.toolbarmenu {
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.mat-list-item {
+  margin-top: -30px;
+}
+
+.mat-list {
+  margin-bottom: 50px;
+}
+
+.mat-tab-label {
+  width :200px;
+}

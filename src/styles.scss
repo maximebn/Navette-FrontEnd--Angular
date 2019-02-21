@@ -1,0 +1,72 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~ngx-toastr/toastr-bs4-alert';
+
+@import "~material-design-icons/iconfont/material-icons.css";
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+#toast-container > div {
+  opacity: 1;
+}
+
+md-tab-group {
+  background-color: pink;
+}
+.mat-tab-body-wrapper {
+  color: black;
+}
+
+// Redéfinition du label des onglets :
+.mat-tab-label {
+  color : black;
+  border-radius:10px;
+  font-size: 16px;
+  user-select: none;
+  position: relative;
+  margin-right: 20px;
+  padding-right: 30px;
+  width: 350px;
+}
+
+// Couleur de la sous-barre des onglets :
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+  background:#e98809;
+}
+
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+    $custom-typography: mat-typography-config(
+    $font-family:   'Montserrat',
+    $display-4:     mat-typography-level(112px, 112px, 300),
+    $display-3:     mat-typography-level(56px, 56px, 400),
+    $display-2:     mat-typography-level(45px, 48px, 400),
+    $display-1:     mat-typography-level(34px, 40px, 400),
+    $headline:      mat-typography-level(24px, 32px, 400),
+    $title:         mat-typography-level(20px, 32px, 500),
+    $subheading-2:  mat-typography-level(16px, 28px, 400),
+    $subheading-1:  mat-typography-level(15px, 24px, 400),
+    $body-2:        mat-typography-level(14px, 24px, 500),
+    $body-1:        mat-typography-level(14px, 20px, 400),
+    $caption:       mat-typography-level(12px, 20px, 400),
+    $button:        mat-typography-level(14px, 14px, 500),
+    $input:         mat-typography-level(inherit, 1.125, 400)
+);
+
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+@include mat-core($custom-typography);

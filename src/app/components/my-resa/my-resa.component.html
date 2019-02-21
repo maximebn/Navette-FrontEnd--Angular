@@ -1,0 +1,26 @@
+<mat-progress-spinner *ngIf="progress"></mat-progress-spinner>
+
+<h1 class="mx-auto">
+  Consultez ici vos prochaines <strong>réservations :</strong>
+</h1>
+
+<div style="overflow-y:auto">
+  <table class="table col-lg-8 col-sm-8 mx-auto text-center">
+    <thead>
+      <tr>
+        <th scope="col">Date de réservation</th>
+        <th scope="col">Date de départ</th>
+        <th scope="col">Horaire de départ</th>
+        <th scope="col">Nombre de places</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let resa of resas">
+          <td>{{ resa.getDateResa() | momentPipe : "DD.MM.YYYY" }}</td>
+          <td>{{ resa.getTourDate() | momentPipe : "DD.MM.YYYY" }}</td>
+          <td>{{ resa.getTourDate() | momentPipe : "HH.mm" }}h</td>
+          <td>{{ resa.getPlaces() }}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>

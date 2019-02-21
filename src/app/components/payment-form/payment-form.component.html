@@ -1,0 +1,56 @@
+ <!-- Utilisation d'un stepper pour le formulaire de paiement -->
+ <mat-horizontal-stepper #stepper>
+
+  <!-- Premier step : numéro de carte bancaire + vérification (voir .ts) -->
+  <mat-step [stepControl]="paymentForm">
+    <form [formGroup]="paymentForm">
+      <ng-template matStepLabel>Numéro de carte bancaire</ng-template>
+      <mat-form-field class="example-full-width">
+          <input formControlName="numeroCB" matInput placeholder="N° de carte" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext [disabled]="paymentForm.get('numeroCB').invalid">Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Second step : date d'expiration + vérification (voir .ts) -->
+  <mat-step [stepControl]="paymentForm">
+    <form [formGroup]="paymentForm">
+      <ng-template matStepLabel>Date d'expiration</ng-template>
+      <mat-form-field class="example-full-width">
+        <input formControlName="expirationDate" matInput placeholder="Date d'expiration" required>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-button matStepperNext [disabled]="paymentForm.get('expirationDate').invalid">Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Troisième step : crypto + vérification (voir .ts) -->
+  <mat-step [stepControl]="paymentForm">
+      <form [formGroup]="paymentForm">
+        <ng-template matStepLabel>Cryptogramme visuel</ng-template>
+        <mat-form-field class="example-full-width">
+            <input formControlName="crypto" matInput placeholder="Cryptogramme" required>
+          </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button matStepperNext [disabled]="paymentForm.get('crypto').invalid">Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+
+  <!-- Dernier step : validation, bouton actif si steps précédentes valides -->
+  <mat-step>
+    <ng-template matStepLabel>Valider le paiement</ng-template>
+    <div>
+      Vous avez presque terminé, il ne vous reste plus qu'à lâcher quelques pièces !
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button class="paiement" [mat-dialog-close]="true" [disabled]="paymentForm.invalid" (click)="sendIt()">Payer</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

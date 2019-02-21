@@ -1,0 +1,67 @@
+button {
+  cursor : pointer;
+  outline: 0;
+}
+
+header {
+  color : white;
+  text-align: center;
+  background-color : rgb(230, 124, 38);
+  margin-top:5px;
+  margin-bottom:45px;
+  padding-bottom:8px;
+  padding-top:8px;
+  width:100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.material-icons {
+  margin-right: 13px;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+h4 {
+  font-size: 22px;
+  text-align: center;
+}
+
+ .headermaticon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: rgb(230, 124, 38);
+}
+
+.mat-toolbar-row {
+  font-size: 30px;
+}
+
+.toolbarmenu {
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+

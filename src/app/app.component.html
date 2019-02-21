@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+  <mat-toolbar color="primary">
+
+       <mat-toolbar-row>
+         <h2 class="mx-auto">ChouFlex, la navette jusque Saint-Ex !</h2>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>reorder</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['']">
+              <mat-icon>flight_takeoff</mat-icon>
+              <span>Tournées</span>
+            </button>
+            <button mat-menu-item [routerLink]="['resas']">
+              <mat-icon>list</mat-icon>
+              <span>Mes réservations</span>
+            </button>
+          </mat-menu>
+
+        <h4 class="mx-auto">Bonjour, nous sommes le {{ currentDate | momentPipe : "DD.MM.YYYY" }}</h4>
+        <button mat-button><mat-icon class="headermaticon">search</mat-icon></button>
+
+        <button mat-icon-button [matMenuTriggerFor]="para"><mat-icon class="headermaticon">more_vert</mat-icon></button>
+        <mat-menu #para="matMenu">
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Paramètres</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>help</mat-icon>
+            <span>Aide</span>
+          </button>
+        </mat-menu>
+
+      </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
