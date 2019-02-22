@@ -25,8 +25,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
-
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './shared/services/auth-inteceptor.service';
 
 
 
@@ -64,7 +64,7 @@ import {MatListModule} from '@angular/material/list';
   ],
   providers: [
       {
-        provide: LOCALE_ID,
+        provide: HTTP_INTERCEPTORS, useClass : AuthInterceptorService,
         useValue: 'fr'
       }
   ],
